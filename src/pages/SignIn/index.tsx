@@ -6,6 +6,7 @@ import {
   ScrollView,
   Platform,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import Input from '../../components/Input';
@@ -23,6 +24,8 @@ import {
 } from './styles';
 
 const SignIn: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <KeyboardAvoidingView
@@ -30,10 +33,7 @@ const SignIn: React.FC = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         enabled
       >
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{ flex: 1 }}
-        >
+        <ScrollView keyboardShouldPersistTaps="handled">
           <Container>
             <Image source={logoImg} />
 
@@ -53,7 +53,7 @@ const SignIn: React.FC = () => {
         </ScrollView>
       </KeyboardAvoidingView>
 
-      <CreateAccountButton onPress={() => {}}>
+      <CreateAccountButton onPress={() => navigation.navigate('SignUp')}>
         <Icon name="log-in" size={20} color="#ff9000" />
         <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
       </CreateAccountButton>
