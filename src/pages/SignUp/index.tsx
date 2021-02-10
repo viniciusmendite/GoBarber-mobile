@@ -48,7 +48,6 @@ const SignUp: React.FC = () => {
             .email('Informe um e-mail válido'),
           password: Yup.string().min(6, 'No mínimo 6 dígitos'),
         });
-
         await schema.validate(data, {
           abortEarly: false,
         });
