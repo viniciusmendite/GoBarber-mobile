@@ -38,6 +38,7 @@
       "prettier/prettier": "error",
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
+      "camelcase": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
