@@ -12,7 +12,13 @@ interface ProviderNameProps {
   selected: boolean;
 }
 
-export const Container = styled.View``;
+interface HourProps {
+  available: boolean;
+}
+
+export const Container = styled.View`
+  flex: 1;
+`;
 
 export const Header = styled.View`
   padding: 24px;
@@ -39,6 +45,8 @@ export const UserAvatar = styled.Image`
   border-radius: 28px;
   margin-left: auto;
 `;
+
+export const Content = styled.ScrollView``;
 
 export const ProvidersListContainer = styled.View`
   height: 112px;
@@ -92,4 +100,38 @@ export const OpenDatePickerButtonText = styled.Text`
   font-family: 'RobotoSlab-Medium';
   font-size: 16px;
   color: #232129;
+`;
+
+export const Schedule = styled.View`
+  padding: 24px 0 16px;
+`;
+
+export const Section = styled.View`
+  margin-bottom: 24px;
+`;
+
+export const SectionTitle = styled.Text`
+  font-size: 18px;
+  color: #999591;
+  font-family: 'RobotoSlab-Regular';
+  margin: 0 24px 12px;
+`;
+
+export const SectionContent = styled.ScrollView.attrs({
+  contentContainerStyle: { paddingHorizontal: 24 },
+})``;
+
+export const Hour = styled.View<HourProps>`
+  padding: 12px;
+  background: #3e3b47;
+  border-radius: 10px;
+  margin-right: 8px;
+
+  opacity: ${props => (props.available ? 1 : 0.3)};
+`;
+
+export const HourText = styled.Text`
+  color: #f4ede8;
+  font-family: 'RobotoSlab-Regular';
+  font-size: 16px;
 `;
